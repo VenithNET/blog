@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uwu</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-size: 12px;
+            line-height: normal;
+            word-wrap: break-word !important;
+            font-family: sans-serif;
+            color: white !important;
+        }
+        .menu {
+            background: #232323;
+            margin: auto;
+            max-width: 800px;
+            overflow: auto;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        .nav {
+            max-width: 100px;
+            float: left;
+            margin: 3px 3px 3px 8px;
+        }
+        .nav2 {
+            max-width: 64px;
+            float: right;
+            margin: 2px;
+        }
+        .ico {
+            float: left;
+            text-align: center;
+            font-size: 10px;
+        }
+        .ico img {
+            border-radius: 16px;
+        }
+        .align-left {
+            text-align: left;
+        }
+        h1 {
+            background: #444;
+            max-width: 800px !important;
+            text-align: center;
+            margin: auto;
+            border: 1px outset #888;
+            border-radius: 32px;
+            font-size: 18px;
+        }
+        img {
+            max-width: 99%;
+            height: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="http://venith.net/TDKPaint/TDKHome/style.css" type="text/css">
+</head>
+<body>
+    <center>
+        <a href="https://venith.net/TDKHome/TDKPaint/index.html" style="text-align: center; margin: auto;">
+            <img src="http://venith.net/TDKHome/TDKPaint/images/icons/ca9535014a37a265bad35e74ad090c7b-Full_1_177x46_280x68.png" alt="TDKPaint" title="TDKPaint">
+        </a>
+    </center>
+    <div class="menu" style="padding: 0!important;">
+        <div class="nav">
+            Welcome, TDK!<br>
+            <a href="https://3dspaint.com/" style="color: #f44;">3DSPaint Link</a>
+        </div>
+        <div class="nav2">
+            <img src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_dc.png" alt="PFP" title="PFP" style="border: 1px gray solid; border-radius: 16px; width: 28px; height: 28px;">
+        </div>
+    </div>
+    <br>
+
+	<h1>uwu</h1>
+	<center> <h2>MattTheTekie</h2> </center>
+	<div class="menu">
+		<div class="zebra">
+	<script>
+		function showText(questionId) {
+			var dropdown = document.getElementById(questionId + "-dropdown");
+			dropdown.classList.toggle("show");
+		}
+	</script>
+</head>
+<body>
+	<div class="menu">
+		<div class="zebra">
+				<p>uwu~</p>
+	</div>
+
+	</div>
+
+	<div style="margin:5px; text-align:center">
+<a href="https://venith.net/TDKHome/TDKPaint/index.html"><img class="icon" src="https://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
+	</div>
+
+
+<div id="divAlertPopup" class="alerts_popup menu"></div>
+<script type="text/javascript">
+	var AlertPopupObj = new XMLHttpRequest();
+	function refreshMyPopupAlerts(){
+		AlertPopupObj.open('GET.html', '../includes/ajax.section.my_alert_popup.php', true);
+		AlertPopupObj.send(null);
+		AlertPopupObj.onreadystatechange = function(){
+			if(AlertPopupObj.readyState>2 && AlertPopupObj.status>=400){
+				AlertPopupObj.onreadystatechange = function(){ setTimeout(refreshMyPopupAlerts, 60000); }
+				AlertPopupObj.abort();
+				return;
+			}
+			if(AlertPopupObj.readyState==4){
+				if(AlertPopupObj.responseText){
+					var divAlertPopup = document.getElementById('divAlertPopup'),
+						alerts = [];
+					try{ alerts = eval(AlertPopupObj.responseText); }catch(err){ }
+					if(alerts.length){
+						var alertString = '',
+							index = 0;
+						while(index<alerts.length){
+							alertString += 'New <a href="../mymessageviewer.php?message='+alerts[index].mess+'">Message</a> from <a href="/member?id='+alerts[index].id+'">'+alerts[index].name+'</a>';
+							index++;
+						}
+						divAlertPopup.innerHTML = alertString;
+						divAlertPopup.style.display = 'block';
+					}else{
+						divAlertPopup.style.display = 'none';
+					}
+				}
+				setTimeout(refreshMyPopupAlerts, 10000);
+			}
+		}
+	}
+	refreshMyPopupAlerts();
+</script>
+
+</body>
+</html>
