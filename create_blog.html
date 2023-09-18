@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="http://cht.venith.net/homebrew-blog/assets/css/blogcss.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="http://cht.venith.net/homebrew-blog/assets/images/icon_browser/homebrew32x32.png">
+    <link href="http://cht.venith.net/homebrew-blog/manifest.json" rel="manifest">
+    <title>Create Blog - Homeblog</title>
+</head>
+<body>
+    <header>
+        <h1>Create a New Blog</h1>
+    </header>
+    <div class="blog-content">
+        <form method="POST" action="/create_blog">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
+            <label for="author">Author Name:</label>
+            <input type="text" id="author" name="author" required><br><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" rows="5" required></textarea><br><br>
+            <button type="submit">Create Blog</button>
+        </form>
+    </div>
+    <footer class="taskbar">
+        <button class="taskbar-button" id="info-button" title="Info Page"><a href='../../info.html'>&#9432;</a></button>
+        <button class="taskbar-button" id="home-button" title="Home"><a href='../../index.html'>&#8962;</a></button>
+        <button class="taskbar-button" id="settings-button" title="Settings"><a href='../../settings.html'>&#9881;</a></button>
+    </footer>
+</body>
+</html>
