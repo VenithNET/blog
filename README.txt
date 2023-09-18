@@ -1,2 +1,2 @@
-VenithNET blog system
-# wip
+# VenithNET blog system
+WIP
