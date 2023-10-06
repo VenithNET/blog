@@ -64,8 +64,8 @@ def blogquest():
                 html_content = html_file.read()
                 title_start = html_content.find('<h1>') + len('<h1>')
                 title_end = html_content.find('</h1>')
-                author_start = html_content.find('<h2>') + len('<h2>')
-                author_end = html_content.find('</h2>')
+                author_start = html_content.find('<!0') + len('--->')
+                author_end = html_content.find('--->')
 
                 # Extract the blog title
                 blog_title = html_content[title_start:title_end]
