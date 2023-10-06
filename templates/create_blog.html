@@ -1,28 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link href="http://cht.venith.net/homebrew-blog/assets/css/blogcss.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="http://cht.venith.net/homebrew-blog/assets/images/icon_browser/homebrew32x32.png">
-    <link href="http://cht.venith.net/homebrew-blog/manifest.json" rel="manifest">
-    <title>Create Blog - Homeblog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://venith.net/TDKHome/TDKCade/favicon.ico" />
+    <title>Blog Composer</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-size: 12px;
+            line-height: normal;
+            word-wrap: break-word !important;
+            font-family: sans-serif;
+            color: white !important;
+        }
+        .menu {
+            background: #232323;
+            margin: auto;
+            max-width: 800px;
+            overflow: auto;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        .nav {
+            max-width: 100px;
+            float: left;
+            margin: 3px 3px 3px 8px;
+        }
+        .nav2 {
+            max-width: 64px;
+            float: right;
+            margin: 2px;
+        }
+        .ico {
+            float: left;
+            text-align: center;
+            font-size: 10px;
+        }
+        .ico img {
+            border-radius: 16px;
+        }
+        .align-left {
+            text-align: left;
+        }
+        h1 {
+            background: #444;
+            max-width: 800px !important;
+            text-align: center;
+            margin: auto;
+            border: 1px outset #888;
+            border-radius: 32px;
+            font-size: 18px;
+        }
+        img {
+            max-width: 99%;
+            height: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="http://venith.net/TDKHome/TDKPaint/style.css" type="text/css">
 </head>
 <body>
-    <header>
-        <h1>Create a New Blog</h1>
-    </header>
-    <div class="blog-content">
-        <form method="POST" action="/create_blog">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required><br><br>
-            <label for="author">Author Name:</label>
-            <input type="text" id="author" name="author" required><br><br>
-            <label for="content">Content:</label><br>
-            <textarea id="content" name="content" rows="5" required></textarea><br><br>
-            <button type="submit">Create Blog</button>
-        </form>
+    <center>
+        <a href="http://venith.net/TDKHome/TDKPaint/index.html" style="text-align: center; margin: auto;">
+            <img src="http://venith.net/TDKHome/TDKPaint/images/icons/ca9535014a37a265bad35e74ad090c7b-Full_1_177x46_280x68.png" alt="TDKPaint" title="TDKPaint">
+        </a>
+    </center>
+    <div class="menu" style="padding: 0!important;">
+        <div class="nav">
+            Welcome, TDK!<br>
+            <a href="http://3dspaint.com/" style="color: #f44;">3DSPaint Link</a>
+        </div>
+        <div class="nav2">
+            <img src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_dc.png" alt="PFP" title="PFP" style="border: 1px gray solid; border-radius: 16px; width: 28px; height: 28px;">
+        </div>
     </div>
-</body>
+
+</div>
+	<h1>Blog Composer</h1>
+
+	<div class="menu">
+		<div class="zebra" style="text-align:center">
+			Follow the <a href="guidelines.php" target="_blank">guidelines</a> when writing blogs and submitting them to be featured.
+		</div>
+<center>
+		<form method="POST" action="/create_blog">
+			<div>Title</div>
+			<div>
+				<input type="text" class="form_field" style="width:95%" maxlength="128" name="title" id="title" />
+			<div>
+						<div>Author Name:</div>
+				<center><input type="text" class="form_field" style="width:95%" maxlength="128" name="author" id="author" />
+			</div></center>
+			<div>
+				<label for="category">Category</label>
+				<select class="form_field" style="width:46%" name="category" id="selCategory">
+					<option value="0">Select Category</option>
+<option value="12" >Ask for Help</option>
+<option value="15" >Current Events</option>
+<option value="5" >Educational</option>
+<option value="4" >Gaming</option>
+<option value="1" >Inspirational</option>
+<option value="9" selected="selected">Miscellaneous</option>
+<option value="13" >Movies and TV</option>
+<option value="10" >Poetry and Lyrics</option>
+<option value="11" >Polemic Rant</option>
+<option value="8" >Previews</option>
+<option value="3" >Related Website</option>
+<option value="7" >Reviews</option>
+<option value="6" >Short Story</option>
+<option value="14" >Technology</option>
+<option value="2" >This Community</option>
+				</select>
+			</div>
+
+			<div style="text-align:center">
+				<label for="delayed_hours">Delayed Post</label>
+				<select class="form_field" style="width:46%" name="delayed_hours" id="delayed_hours">
+					<option value="0">+0:00</option>
+					<option value="1">+1:00</option>
+					<option value="2">+2:00</option>
+					<option value="3">+3:00</option>
+					<option value="4">+4:00</option>
+					<option value="5">+5:00</option>
+					<option value="6">+6:00</option>
+					<option value="7">+7:00</option>
+					<option value="8">+8:00</option>
+					<option value="9">+9:00</option>
+					<option value="10">+10:00</option>
+					<option value="11">+11:00</option>
+					<option value="12">+12:00</option>
+					<option value="13">+13:00</option>
+					<option value="14">+14:00</option>
+					<option value="15">+15:00</option>
+					<option value="16">+16:00</option>
+					<option value="17">+17:00</option>
+					<option value="18">+18:00</option>
+					<option value="19">+19:00</option>
+					<option value="20">+20:00</option>
+					<option value="21">+21:00</option>
+					<option value="22">+22:00</option>
+					<option value="23">+23:00</option>
+					<option value="24">+24:00</option>
+					<option value="25">+25:00</option>
+					<option value="26">+26:00</option>
+					<option value="27">+27:00</option>
+					<option value="28">+28:00</option>
+					<option value="29">+29:00</option>
+					<option value="30">+30:00</option>
+					<option value="31">+31:00</option>
+					<option value="32">+32:00</option>
+					<option value="33">+33:00</option>
+					<option value="34">+34:00</option>
+					<option value="35">+35:00</option>
+					<option value="36">+36:00</option>
+					<option value="37">+37:00</option>
+					<option value="38">+38:00</option>
+					<option value="39">+39:00</option>
+					<option value="40">+40:00</option>
+					<option value="41">+41:00</option>
+					<option value="42">+42:00</option>
+					<option value="43">+43:00</option>
+					<option value="44">+44:00</option>
+					<option value="45">+45:00</option>
+					<option value="46">+46:00</option>
+					<option value="47">+47:00</option>
+					<option value="48">+48:00</option>
+
+				</select>
+			</div>
+			<div style="text-align:center">
+				<label for="news">Submit to be Featured</label>
+				<input style="text-align:left; width:46%" type="checkbox" name="news" id="news" value="true" checked="checked" disabled="true"  />
+			</div>
+			<div style="text-align:center">
+				<label for="draft">Draft</label>
+				<input style="text-align:left; width:46%" type="checkbox" name="draft" id="draft" value="false" disabled="true" />
+			</div>
+			<div style="text-align:center">
+				<label for="allow_comments">Allow Comments</label>
+				<input style="text-align:left; width:46%" type="checkbox" name="allow_comments" id="allow_comments" value="false" disabled="true" />
+			</div>
+			<center><div>Body</div>
+			<div>
+				<textarea name="content" id="content" style="height:176px; width:95%"></textarea>
+			</div>
+			<input type="submit" class="form_button" value="Submit" />
+		</form>
+	</div></center>
+
+
+				<div style="margin:5px; text-align:center">
+				<a href="http://venith.net/TDKHome/TDKPaint/index.html"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
+				<a href="http://blogs.venith.net/blogquest"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_back.png" /></a>
+			</div>
+
+			
+<div style="font-size:10px; text-align:center">
+	Nintendo 3DS is &trade; Nintendo Co. Ltd.
+	This website is &copy;2009-2023 HullBreach Studios. All rights reserved.
+	Members are responsible for their own content.
+	No account information will be given to third-parties without your consent.
+</div>
+
+    </body>
 </html>
+
