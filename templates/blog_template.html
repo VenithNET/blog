@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ blog_title }}</title>
+    <link rel="shortcut icon" href="https://venith.net/TDKHome/TDKCade/favicon.ico" />
+    <title>TDKPaint</title>
     <style>
         body {
             background-color: black;
@@ -57,85 +58,179 @@
             height: auto;
         }
     </style>
-    <link rel="stylesheet" href="http://venith.net/TDKPaint/TDKHome/style.css" type="text/css">
+    <link rel="stylesheet" href="http://venith.net/TDKHome/TDKPaint/style.css" type="text/css">
 </head>
 <body>
     <center>
-        <a href="https://venith.net/TDKHome/TDKPaint/index.html" style="text-align: center; margin: auto;">
+        <a href="index.html" style="text-align: center; margin: auto;">
             <img src="http://venith.net/TDKHome/TDKPaint/images/icons/ca9535014a37a265bad35e74ad090c7b-Full_1_177x46_280x68.png" alt="TDKPaint" title="TDKPaint">
         </a>
     </center>
     <div class="menu" style="padding: 0!important;">
         <div class="nav">
             Welcome, TDK!<br>
-            <a href="https://3dspaint.com/" style="color: #f44;">3DSPaint Link</a>
+            <a href="http://3dspaint.com/" style="color: #f44;">3DSPaint Link</a>
         </div>
         <div class="nav2">
             <img src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_dc.png" alt="PFP" title="PFP" style="border: 1px gray solid; border-radius: 16px; width: 28px; height: 28px;">
         </div>
     </div>
-    <br>
 
-	<h1>{{ blog_title }}</h1>
-	<center> <h2>{{ author_name }}</h2> </center>
-	<div class="menu">
-		<div class="zebra">
-	<script>
-		function showText(questionId) {
-			var dropdown = document.getElementById(questionId + "-dropdown");
-			dropdown.classList.toggle("show");
-		}
-	</script>
-</head>
-<body>
-	<div class="menu">
-		<div class="zebra">
-				<p>{{ blog_content }}</p>
-	</div>
+</div>
 
-	</div>
+    <h1>{{ blog_title }}</h1>
 
-	<div style="margin:5px; text-align:center">
-<a href="https://venith.net/TDKHome/TDKPaint/index.html"><img class="icon" src="https://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
-	</div>
+		
+			<div class="menu_section" style="padding:0px">
+				<div class="form_heading">
+					<img id="imgRating" class="rating" style="float:right" src="http://venith.net/TDKHome/TDKPaint/images/rating_e32.png" alt="E" />
+
+												<img src="/images/art_gallery/243915.png" alt="Avatar" class="avatar" />
+							
+					By <a href="/member?id=137730">{{ author_name }}</a>
+					
+					
+					<br />
+					POSTED: 29 Sep 2023 03:21<br />
+
+					
+					CATEGORY: Gaming<br />
+					
+
+						FEATURED: <span style="color:#0a0">Yes</span>						(<a href="/member?id=34558">IblisFlare</a>)
+						<br>(<a href="#comments">Go to comments</a>)
+				</div>
+				<div class="form_body" id="blog_body">
+						<a href="/images/upload_gallery/10740.jpg"><img src="/images/upload_gallery/10740_thumb.jpg" alt="thumb"></a>
+<br />
+<p>{{ blog_content }}</p></div>
+				<div class="zebra">
+					<div style="text-align:center">
+												+6												-0					</div>
+					<div>
+
+														<a class="left" href="/member?id=137730">
+																			<img src="../images/art_gallery/243915.png" alt="Avatar" class="avatar" />
+																		</a>
+																<a class="left" href="/member?id=150961">
+																			<img src="../images/art_gallery/246499.png" alt="Avatar" class="avatar" />
+																		</a>
+																<a class="left" href="/member?id=150326">
+																			<img src="../images/art_gallery/246474.png" alt="Avatar" class="avatar" />
+																		</a>
+																<a class="left" href="/member?id=165958">
+																			<img src="../images/art_gallery/247740.png" alt="Avatar" class="avatar" />
+																		</a>
+																<a class="left" href="/member?id=164078">
+																			<img src="../images/art_gallery/247407.png" alt="Avatar" class="avatar" />
+																		</a>
+																<a class="left" href="/member?id=84791">
+																			<img src="../images/art_gallery/233714.png" alt="Avatar" class="avatar" />
+																		</a>
+													</div>
+					<div style="clear:both"></div>
+				</div>
+			</div>
+			<a id="comments"></a>
+			<h1>Comments</h1>
+			<div class="menu_section">
 
 
-<div id="divAlertPopup" class="alerts_popup menu"></div>
-<script type="text/javascript">
-	var AlertPopupObj = new XMLHttpRequest();
-	function refreshMyPopupAlerts(){
-		AlertPopupObj.open('GET.html', '../includes/ajax.section.my_alert_popup.php', true);
-		AlertPopupObj.send(null);
-		AlertPopupObj.onreadystatechange = function(){
-			if(AlertPopupObj.readyState>2 && AlertPopupObj.status>=400){
-				AlertPopupObj.onreadystatechange = function(){ setTimeout(refreshMyPopupAlerts, 60000); }
-				AlertPopupObj.abort();
-				return;
-			}
-			if(AlertPopupObj.readyState==4){
-				if(AlertPopupObj.responseText){
-					var divAlertPopup = document.getElementById('divAlertPopup'),
-						alerts = [];
-					try{ alerts = eval(AlertPopupObj.responseText); }catch(err){ }
-					if(alerts.length){
-						var alertString = '',
-							index = 0;
-						while(index<alerts.length){
-							alertString += 'New <a href="../mymessageviewer.php?message='+alerts[index].mess+'">Message</a> from <a href="/member?id='+alerts[index].id+'">'+alerts[index].name+'</a>';
-							index++;
-						}
-						divAlertPopup.innerHTML = alertString;
-						divAlertPopup.style.display = 'block';
-					}else{
-						divAlertPopup.style.display = 'none';
-					}
-				}
-				setTimeout(refreshMyPopupAlerts, 10000);
-			}
-		}
-	}
-	refreshMyPopupAlerts();
-</script>
+				
+            <div class="form_heading" style="border-top:1px solid #888; margin-left:3px; padding:0px; text-align:left">
+                <a name="431797"></a>
 
-</body>
+                                <img src="/images/art_gallery/247407.png" alt="Avatar" class="avatar" />
+                    
+                <a href="/member?id=164078">i123456</a><br />
+            02 Oct 2023 20:47<br />
+
+                
+                <div class="zebra" id="comment[431797]" style="clear:both">
+
+is there rewards?
+                    
+            <div class="form_heading" style="border-top:1px solid #888; margin-left:3px; padding:0px; text-align:left">
+                <a name="431798"></a>
+
+                                <img src="/images/art_gallery/246474.png" alt="Avatar" class="avatar" />
+                    
+                <a href="/member?id=150326">Weeeheeep</a><br />
+            02 Oct 2023 21:22<br />
+
+                In reply to i123456
+                <div class="zebra" id="comment[431798]" style="clear:both">
+
+I believe it's a ask quilt slot honoring the pokemon you used on your team
+                    
+            <div class="form_heading" style="border-top:1px solid #888; margin-left:3px; padding:0px; text-align:left">
+                <a name="431799"></a>
+
+                                <img src="/images/art_gallery/246474.png" alt="Avatar" class="avatar" />
+                    
+                <a href="/member?id=150326">Weeeheeep</a><br />
+            02 Oct 2023 21:23<br />
+
+                In reply to Weeeheeep
+                <div class="zebra" id="comment[431799]" style="clear:both">
+
+An SDK quilt slot*
+                    
+            <div class="form_heading" style="border-top:1px solid #888; margin-left:3px; padding:0px; text-align:left">
+                <a name="431804"></a>
+
+                                <img src="/images/art_gallery/243915.png" alt="Avatar" class="avatar" />
+                    
+                <a href="/member?id=137730">Draconid_Jo</a><br />
+            03 Oct 2023 18:35<br />
+
+                In reply to Weeeheeep
+                <div class="zebra" id="comment[431804]" style="clear:both">
+
+That's correct, it'll have a picture of all 6 Pokemon you used during the tournament (in whatever form they were in, such as Shinies, regional variants, Mega Evolutions, etc.), and as I described in this blog, it'll also have a picture of the avatar that you used on Pokemon Showdown during the tournament. <img src="/chatrooms/smilies/alien1.gif" /> @i123456
+<br />(Which can be changed by typing <span style="font-weight:bold">/avatar</span>.)
+                    
+        </div>
+
+        
+                </div>
+
+            
+        </div>
+
+        
+                </div>
+
+            
+        </div>
+
+        
+                </div>
+
+            
+        </div>
+
+        
+                </div>
+
+            
+        </div>
+
+        
+			</div>
+
+			<div style="margin:5px; text-align:center">
+				<a href="/"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
+				<a href="/blog"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_back.png" /></a>
+			</div>
+
+			
+<div style="font-size:10px; text-align:center">
+	Nintendo 3DS is &trade; Nintendo Co. Ltd.
+	This website is &copy;2009-2023 HullBreach Studios. All rights reserved.
+	Members are responsible for their own content.
+	No account information will be given to third-parties without your consent.
+</div>
+
+    </body>
 </html>
