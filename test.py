@@ -1,6 +1,5 @@
 import os
 from flask import Flask, request, render_template, jsonify, redirect, url_for
-import datetime
 
 app = Flask(__name__)
 
@@ -19,19 +18,11 @@ def create_blog():
         blog_content = request.form['content']
         author_name = request.form['author']
 
-        # Check if the date is provided in the form data
-        if 'date' in request.form:
-            blog_date = request.form['date']
-        else:
-            # If no date is provided, use the default date "01/01/2023"
-            blog_date = '01/01/2023'
 
-        # Store the blog in the JSON database along with the date
         blog = {
             'title': blog_title,
             'content': blog_content,
             'author': author_name,
-            'date': blog_date  # Use the provided date or the default date
         }
         blogs.append(blog)
 
@@ -40,7 +31,7 @@ def create_blog():
         html_path = os.path.join(blog_folder, html_filename)
 
         # Generate the HTML content and save it to the file
-        rendered_html = render_template('blog_template.html', blog_title=blog_title, author_name=author_name, blog_content=blog_content, blog_date=blog_date)
+        rendered_html = render_template('blog_template.html', blog_title=blog_title, author_name=author_name, blog_content=blog_content)
         with open(html_path, 'w') as html_file:
             html_file.write(rendered_html)
 
@@ -75,11 +66,6 @@ def blogquest():
                 title_end = html_content.find('</h1>')
                 author_start = html_content.find('<h2>') + len('<h2>')
                 author_end = html_content.find('</h2>')
-                date_start = html_content.find('<div class="date">') + len('<div class="date">')
-                date_end = html_content.find('</div>', date_start)
-
-                # Use the default date if no date is found
-#                blog_date = '01/01/2023' if date_start == -1 or date_end == -1 else html_content[date_start:date_end]
 
                 # Extract the blog title
                 blog_title = html_content[title_start:title_end]
