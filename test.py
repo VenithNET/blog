@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, render_template, jsonify, redirect, url_for
-import datetime  # Import the datetime module
+import datetime
 
 app = Flask(__name__)
 
@@ -40,7 +40,7 @@ def create_blog():
         html_path = os.path.join(blog_folder, html_filename)
 
         # Generate the HTML content and save it to the file
-        rendered_html = render_template('blog_template.html', blog_title=blog_title, author_name=author_name, blog_content=blog_content, date=blog_date)
+        rendered_html = render_template('blog_template.html', blog_title=blog_title, author_name=author_name, blog_content=blog_content, blog_date=blog_date)
         with open(html_path, 'w') as html_file:
             html_file.write(rendered_html)
 
@@ -75,35 +75,33 @@ def blogquest():
                 title_end = html_content.find('</h1>')
                 author_start = html_content.find('<h2>') + len('<h2>')
                 author_end = html_content.find('</h2>')
+                date_start = html_content.find('<div class="date">') + len('<div class="date">')
+                date_end = html_content.find('</div>', date_start)
 
-                if title_start != -1 and title_end != -1 and author_start != -1 and author_end != -1:
-                    blog_title = html_content[title_start:title_end]
-                    author_name = html_content[author_start:author_end]
+                # Use the default date if no date is found
+                blog_date = '01/01/2023' if date_start == -1 or date_end == -1 else html_content[date_start:date_end]
 
-                    # Extract the date from the blog content (assuming a specific format)
-                    date_start = html_content.find('<div class="date">') + len('<div class="date">')
-                    date_end = html_content.find('</div>', date_start)
-                    if date_start != -1 and date_end != -1:
-                        blog_date = html_content[date_start:date_end]
-                    else:
-                        # Use the default date if no date is found
-                        blog_date = '01/01/2023'
+                # Extract the blog title
+                blog_title = html_content[title_start:title_end]
 
-                    # Generate the HTML structure for each blog entry
-                    entry_html = f"""
-                    <div class="zebra">
-                        <img class="rating left" src="http://venith.net/TDKHome/TDKPaint/images/rating_e32.png" alt="E" />
-                        <div class="blog_right">
-                            <div style="background:#8f0; border:1px solid #8f0">6</div>
-                            <img src="http://venith.net/TDKHome/TDKPaint/images/new.png" alt="New!" />
-                        </div>
-                        <a href="/blog/{filename}">{blog_title}</a><br />
-                        In Gaming<br />
-                        By <a href="/member?id=137730">{author_name}</a><br />
+                # Extract the author name
+                author_name = html_content[author_start:author_end]
+
+                # Generate the HTML structure for each blog entry
+                entry_html = f"""
+                <div class="zebra">
+                    <img class="rating left" src="http://venith.net/TDKHome/TDKPaint/images/rating_e32.png" alt="E" />
+                    <div class="blog_right">
+                        <div style="background:#8f0; border:1px solid #8f0">6</div>
+                        <img src="http://venith.net/TDKHome/TDKPaint/images/new.png" alt="New!" />
                     </div>
-                    """
+                    <a href="/blog/{filename}">{blog_title}</a><br />
+                    In General<br />
+                    By <a href="/member?id=137730">{author_name}</a><br />
+                </div>
+                """
 
-                    blog_entries.append(entry_html)
+                blog_entries.append(entry_html)
 
     return render_template('blogquest_template.html', blog_entries=blog_entries)
 
