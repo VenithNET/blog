@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://venith.net/TDKHome/TDKCade/favicon.ico" />
-    <title>TDKPaint</title>
+    <title>Featured Blogs</title>
     <style>
         body {
             background-color: black;
@@ -78,6 +79,9 @@
     </div>
 
     <h1>Featured Blogs</h1>
+	<div class="menu">
+				<div class="zebra">			
+
 <center>    <button onclick="location.href='http://blogs.venith.net/create_blog'">Create Blog</button>
 </center>
     <div class="menu_section">
@@ -90,13 +94,13 @@
     <h1>Other Views</h1>
     <div class="menu_section" style="width:200px">
         <div class="button_div">
-            <a href="/blogsearch.php" style="color:#fff">Search All</a>
+            <a href="#" style="color:#fff">Search All</a>
         </div>
         <div class="clear_div"></div>
     </div>
 
     <div style="text-align:center">
-        <a href="/"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
+        <a href="http://venith.net/TDKHome/TDKPaint/index.html"><img class="icon" src="http://venith.net/TDKHome/TDKPaint/images/icons/icon_home.png" alt="Home" /></a>
     </div>
 
     <div style="font-size:10px; text-align:center">
@@ -107,40 +111,7 @@
     </div>
 
     <div id="divAlertPopup" class="alerts_popup menu_section"></div>
-    <script type="text/javascript">
-        var AlertPopupObj = new XMLHttpRequest();
-        function refreshMyPopupAlerts(){
-            AlertPopupObj.open('GET', '/includes/ajax.section.my_alert_popup.php', true);
-            AlertPopupObj.send(null);
-            AlertPopupObj.onreadystatechange = function(){
-                if(AlertPopupObj.readyState>2 && AlertPopupObj.status>=400){
-                    AlertPopupObj.onreadystatechange = function(){ setTimeout(refreshMyPopupAlerts, 60000); }
-                    AlertPopupObj.abort();
-                    return;
-                }
-                if(AlertPopupObj.readyState==4){
-                    if(AlertPopupObj.responseText){
-                        var divAlertPopup = document.getElementById('divAlertPopup'),
-                            alerts = [];
-                        try{ alerts = eval(AlertPopupObj.responseText); }catch(err){ }
-                        if(alerts.length){
-                            var alertString = '',
-                                index = 0;
-                            while(index<alerts.length){
-                                alertString += 'New <a href="/mymessageviewer.php?message='+alerts[index].mess+'">Message</a> from <a href="/member?id='+alerts[index].id+'">'+alerts[index].name+'</a>';
-                                index++;
-                            }
-                            divAlertPopup.innerHTML = alertString;
-                            divAlertPopup.style.display = 'block';
-                        }else{
-                            divAlertPopup.style.display = 'none';
-                        }
-                    }
-                    setTimeout(refreshMyPopupAlerts, 10000);
-                }
-            }
-        }
-        refreshMyPopupAlerts();
-    </script>
 </body>
 </html>
+
+
