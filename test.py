@@ -51,7 +51,7 @@ def blog(filename):
 
 @app.route('/blogquest')
 def blogquest():
-    blog_links = []
+    blog_data = []
 
     # Iterate through files in the "blogs" folder
     for filename in os.listdir(blog_folder):
@@ -69,9 +69,14 @@ def blogquest():
                 if title_start != -1 and title_end != -1 and author_start != -1 and author_end != -1:
                     blog_title = html_content[title_start:title_end]
                     author_name = html_content[author_start:author_end]
-                    blog_links.append(f'<a href="/blog/{filename}">{blog_title} by {author_name}</a>')
+                    blog_data.append({
+                        'title': blog_title,
+                        'author': author_name,
+                        'url': f"/blog/{filename}"
+                    })
 
-    return "<br>".join(blog_links)
+    return render_template('blogquest.html', blogs=blog_data)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8162)
