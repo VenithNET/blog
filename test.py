@@ -79,7 +79,7 @@ def blogquest():
                 date_end = html_content.find('</div>', date_start)
 
                 # Use the default date if no date is found
-                blog_date = '01/01/2023' if date_start == -1 or date_end == -1 else html_content[date_start:date_end]
+#                blog_date = '01/01/2023' if date_start == -1 or date_end == -1 else html_content[date_start:date_end]
 
                 # Extract the blog title
                 blog_title = html_content[title_start:title_end]
